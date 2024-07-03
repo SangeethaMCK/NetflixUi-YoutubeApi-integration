@@ -1,0 +1,77 @@
+.home-navbar {
+    display:inline-flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .homeNav__logo {
+    width: 150px;
+    padding: 30px;
+    margin-right: 20px;
+  }
+  
+  .home_nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    display: inline-flex;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+    z-index: 1;
+  }
+  
+  .homeNav__link {
+    color: white;
+    text-decoration: none;
+   padding: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .homeNav__link:hover {
+    color: rgb(165, 163, 163);
+  }
+  
+  .home_Rightnav {
+    display: flex;
+  justify-content: right;
+  }
+  
+  .search-box {
+    position: relative;
+  }
+  
+  
+  .input-search {
+    position: relative;
+    top: 100%;
+    left: 0;
+    width: 15%;
+    box-sizing: border-box;
+    border:none;
+    background: transparent;
+    color: white;
+    transition: width 0.5s ease-in-out;
+  }
+  .input-search:hover, .input-search:active, .input-search:focus {
+    width: 100%;
+    border: white 1px solid;
+    background-color: rgba(0, 0, 0, 0.411);
+  }
+  
+  .input-search::placeholder {
+    color: white;
+    opacity: 0.8;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .homeNav__link{
+      font-size: 10px;
+    }
+    .input-search:active{
+      size: 12px;
+    }
+}
+    

@@ -1,0 +1,143 @@
+.video-player-container {
+  position: absolute;
+  background: black;
+  align-content: center;
+  height: 100%;
+  width: 100%;
+}
+.onScreenControls{
+  position: absolute;
+  font-size: large;
+
+}
+
+.videoTime-controls {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+
+.video-controls {
+  position: absolute;
+  padding: 5px;
+  display: inline-flex;
+  bottom: 10px;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.control-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 30px;
+  width: 40px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* check */
+.control-button-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.control-button-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.control-button:focus {
+  outline: none;
+}
+
+.control-button:hover {
+  font-size: calc(1.5rem + 1vw);
+  transition: font-size 0.2s;
+}
+
+@media screen and (max-width: 480px) {
+  .control-button {
+    font-size: 16px;
+    margin: auto;
+    padding: auto;
+  }
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 10px;
+}
+
+.progress-container input[type="range"] {
+  flex-grow: 1;
+  margin: 0 10px;
+  height: 3px;
+  background: #b4b4b4;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.progress-range {
+  accent-color: red;
+}
+
+/* .progress-range::-moz-range-thumb {
+    height: 10px;
+    width: 10px;
+    background-color: #ff0000;  
+    border-radius: 50%;
+    border: 2px solid red;  
+    accent-color: red;
+  } */
+
+
+.progress-container span {
+  color: white;
+  font-size: 14px;
+}
+
+.playback-rate-table {
+  display: none;
+  background-color: rgb(49, 46, 46);
+  position: absolute;
+  top: -40px;
+  right: 50px;
+  width: 200px;
+  height: 50px;
+  z-index: 10;
+}
+
+#speed-button:hover  .playback-rate-table,  .playback-rate-table:hover {
+  display: table;
+}
+
+.playback-rate-table td {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 5px;
+  color: white;
+  font-size: medium;
+  width: 50px;
+}
+
+.playback-rate-table td:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}

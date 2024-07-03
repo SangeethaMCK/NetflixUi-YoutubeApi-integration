@@ -2,7 +2,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;         
   background-color: black;
   color: white;
 }
@@ -13,8 +13,8 @@ body, html {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url('https://assets.nflxext.com/ffe/siteui/vlv3/51c1d7f7-3179-4a55-93d9-704722898999/be90e543-c951-40d0-9ef5-e067f3e33d16/IN-en-20240610-popsignuptwoweeks-perspective_alpha_website_small.jpg');
+  background: radial-gradient(rgba(0, 0, 0, 0.4), rgba(0,0, 0, 0.7)),
+  url('https://assets.nflxext.com/ffe/siteui/vlv3/51c1d7f7-3179-4a55-93d9-704722898999/be90e543-c951-40d0-9ef5-e067f3e33d16/IN-en-20240610-popsignuptwoweeks-perspective_alpha_website_small.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -23,7 +23,7 @@ header{
 }
 
 .navBar {
-  display: inline-flex; /* display: inline-flex; */
+  display: inline-flex; 
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -32,7 +32,7 @@ header{
 }
 
 .nav__logo {
-  width: 150px;
+  width: 150px;  
   margin-left: 0%;
 }
 
@@ -43,7 +43,7 @@ header{
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .dropdown__button {
@@ -90,7 +90,7 @@ header{
   border: none;
   color: white;
   border-radius: 5px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .banner {
@@ -101,7 +101,7 @@ header{
 
 .heading h1 {
   font-size: 3rem;
-  font-weight: bold;
+  font-weight: bolder;
   margin-bottom: 20px;
   margin-top: 50px;
 }
@@ -187,74 +187,4 @@ form {
     width: auto;
     padding: 15px;
   }
-}
-////////////////////////////////////////////////////////////////////////////////
-
-.home-navbar {
-  background-color: #2c292977; 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  display:inline-flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.homeNav__logo {
-  width: 150px;
-  padding: 30px;
-  margin-right: 20px;
-}
-
-.home_nav {
-  display: flex;
-  align-items: center;
-}
-
-.homeNav__link {
-  color: white;
-  text-decoration: none;
-  margin-right: 20px;
-  font-size: 1rem; 
-}
-
-.homeNav__link:hover {
-  color: rgb(165, 163, 163);
-}
-
-.home_Rightnav {
-  display: flex;
-  align-items: center;
-  padding-right: 20px;
-}
-
-.search-box {
-  position: relative;
-}
-
-
-.input-search {
-  position: relative;
-  top: 100%;
-  left: 0;
-  width: 15%;
-  padding: 10px;
-  box-sizing: border-box;
-  border:none;
-  border-radius: 4px;
-  background: transparent;
-  color: white;
-  transition: width 0.5s ease-in-out;
-}
-.input-search:hover, .input-search:active, .input-search:focus {
-  width: 100%;
-  border:none;
-  border-bottom: 1px solid #ccc;
-}
-
-.input-search::placeholder {
-  color: white;
-  opacity: 0.8;
 }
