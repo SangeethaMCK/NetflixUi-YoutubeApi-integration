@@ -51,11 +51,13 @@ export default function Billboard() {
         >
           {hoveredVideo && (
             <iframe
-              src={`https://www.youtube.com/embed/${videos.id}?autoplay=1&controls=0&showinfo=0&rel=0&modestbranding=1&autohide=1frameborder="0" `}
+              src={`https://www.youtube.com/embed/${videos.id}?controls=0&showinfo=0&rel=0&modestbranding=1&autohide=1&autoplay=1 `}
               loading="eager"
               className="billboard-video"
-            ></iframe>
+            >
+           </iframe>
           )}
+           {hoveredVideo && <div className="billboard-video-overlay"></div>}
 
           <div className="billboard-content">
             <span className="title">{videos.title}</span>
