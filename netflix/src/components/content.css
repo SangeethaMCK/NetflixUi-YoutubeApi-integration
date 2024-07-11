@@ -1,7 +1,11 @@
+:root {
+  --scroll-index: 0px;
+}
+
 .content {
   background-color: #444444;
   position: absolute;
-  top:100%;
+  top: 100%;
   right: 0;
   left: 0;
   background: linear-gradient(to bottom, #444444 100%, #444444 0%);
@@ -9,11 +13,14 @@
 
 .title-cards {
   transform: translate(0, -10%);
-
 }
-.rows{
+
+.rows {
   margin-top: 25px;
-  margin-left: 10px;
+  padding-left: 45px;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 .rowHeader {
@@ -23,13 +30,13 @@
 }
 
 .cardRow {
-  display: ruby;  
+  transform: translateX(var(--scroll-index));
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 20px;
-  /* overflow-x:scroll;
-  scroll-behavior: smooth; */
-
+  transition: all 1s ease-in-out;
+  
 }
 
 .card {
@@ -54,13 +61,13 @@
 .card-hover {
   display: none;
   position: absolute;
-  top: -50%;  /* calc(  */
-  left: 0;  /* calc(  */
+  top: -50%;
+  left: 0;
   box-shadow: 2px 5px 5px 2px black;
   background-color: #555;
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
-  z-index: 10
+  z-index: 10;
 }
 
 .card-wrapper:hover .card-hover {
@@ -73,7 +80,7 @@
 }
 
 .cardImage-Hover {
-  border-radius: 5px; 
+  border-radius: 5px;
   height: 200px;
   width: 350px;
 }
@@ -88,10 +95,12 @@
   top: 0;
   left: 0;
 }
-.play-btn-link{
+
+.play-btn-link {
   text-decoration: none;
   color: black;
 }
+
 .play-btn {
   background-color: white;
   color: black;
@@ -128,36 +137,42 @@
   color: #fff;
 }
 
-.handleLeft, .handleRight {
-  position:absolute ;
+.handleLeft,
+.handleRight {
   border: none;
   height: 150px;
-  width: 3rem;
+  width: 50px;
   z-index: 10;
   padding: 5px 5px;
+  margin: 5px 0px;
   background-color: transparent;
   color: transparent;
+
 }
+
 .handleLeft {
-  margin: 5px 0px 0px 5px;
-  left: 0;    
-} 
+  left: 0;
+  position: fixed;
+
+}
+
 .handleRight {
-  margin: 5px 0px 0px 0px;
   right: 0;
+  position: fixed;
 }
 
-.cardRow:hover .handleLeft{ 
-  color: rgb(255, 255, 255);
-  font-size: 2rem;
-
-}
-.cardRow:hover .handleRight{
+.rows:hover .handleLeft {
   color: rgb(255, 255, 255);
   font-size: 2rem;
 }
 
-.handleLeft:hover, .handleRight:hover{
+.rows:hover .handleRight {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+
+.handleLeft:hover,
+.handleRight:hover {
   background-color: rgba(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
   font-size: 2.5rem;

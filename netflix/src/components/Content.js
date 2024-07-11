@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./content.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,23 +13,13 @@ import { Link } from "react-router-dom";
 export default function Contents() {
   const [playlists, setPlaylists] = useState([]);
   const [hoveredVideo, setHoveredVideo] = useState(null);
-  const rowRefs = useRef([]);
-
-  const scrollRow = (index, direction) => {
-    console.log("rowRefs", rowRefs.current[index], index);
-    const rowRef = rowRefs.current[index];
-    console.log("rowRef", rowRef);
-    if (rowRef) {
-      const scrollAmount = direction === "left" ? -1 : 1;
-      rowRef.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    }
-  };
+  const [scrollIndices, setScrollIndices] = useState({});
 
   useEffect(() => {
     const fetchPlaylists = async () => {
       try {
         const playlistsResponse = await fetch(
-          "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UC8butISFwT-Wl7EV0hUK0BQ&maxResults=6&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg"
+          "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UC8butISFwT-Wl7EV0hUK0BQ&maxResults=6&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg" // Replace with your API key
         );
         const playlistsData = await playlistsResponse.json();
         const playlistItems = playlistsData.items.map((item) => ({
@@ -42,7 +32,7 @@ export default function Contents() {
         playlistItems.forEach(async (playlist) => {
           try {
             const videosResponse = await fetch(
-              `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${playlist.id}&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg`
+              `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=100&playlistId=${playlist.id}&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg` 
             );
             const videosData = await videosResponse.json();
             const videoItems = videosData.items.map((item) => ({
@@ -81,23 +71,38 @@ export default function Contents() {
     }, 1000);
   };
 
+  const scrollRow = (index, direction) => {
+    setScrollIndices((prevScrollIndices) => {
+      const newScrollIndex =
+        direction === "left"
+          ? (prevScrollIndices[index] || 0) + 20
+          : (prevScrollIndices[index] || 0) - 20;
+      return {
+        ...prevScrollIndices,
+        [index]: newScrollIndex,
+      };
+    });
+  };
+
   return (
     <div className="content">
-      <div className="title-cards" style={{ padding: "10px 40px" }}>
+      <div className="title-cards">
         {playlists.map((playlist, index) => {
+          const scrollIndex = scrollIndices[index] || 0;
           return (
             <div key={index} className="rows">
               <h6 className="rowHeader">{playlist.title}</h6>
-              <div
-                className="cardRow"
-                ref={(el) => (rowRefs.current[index] = el)}
-              >
-                <button
+              <button
                   className="handleLeft"
                   onClick={() => scrollRow(index, "left")}
                 >
                   <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
+              <div
+                className="cardRow"
+                style={{ "--scroll-index": `${scrollIndex}%` }}
+              >
+               
                 {playlist.videos &&
                   playlist.videos.map((video, index) => (
                     <div key={index} className="card">
@@ -149,13 +154,14 @@ export default function Contents() {
                       </div>
                     </div>
                   ))}
-                <button
+                
+              </div>
+              <button
                   className="handleRight"
                   onClick={() => scrollRow(index, "right")}
                 >
                   <FontAwesomeIcon icon={faChevronRight} />
                 </button>
-              </div>
             </div>
           );
         })}

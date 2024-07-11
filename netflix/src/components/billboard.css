@@ -6,6 +6,7 @@
   align-items: center;
   background-color: #333; /* fallback color */
   color: white;
+
 }
 
 .billboard-container {
@@ -15,6 +16,7 @@
   background-size: cover;
   background-position: center;
   overflow: hidden;
+ 
 }
 
 .billboard-video {
