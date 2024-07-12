@@ -17,6 +17,9 @@ import {
 import "./video.css";
 import { useParams } from "react-router-dom";
 
+// import { SpriteGenerator } from 'sprite-vtt-generator';
+
+
 function VideoPlayer() {
   const { videoId } = useParams();
   const playerRef = useRef(null);
@@ -39,17 +42,17 @@ function VideoPlayer() {
     }
   };
 
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setFullscreen(document.fullscreenElement === playerRef.current.wrapper);
-    };
+  // useEffect(() => {
+  //   const handleFullscreenChange = () => {
+  //     setFullscreen(document.fullscreenElement === playerRef.current.wrapper);
+  //   };
 
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
+  //   document.addEventListener("fullscreenchange", handleFullscreenChange);
 
-    return () => {
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
-    };
-  }, []);
+  //   return () => {
+  //     document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  //   };
+  // }, []);
 
   const togglePlayPause = () => {
     console.log("togglePlayPause");
@@ -63,7 +66,7 @@ function VideoPlayer() {
   const toggleFullscreen = () => {
     const playerElement = playerRef.current.wrapper;
     if (!fullscreen && playerElement.requestFullscreen) {
-      playerElement.requestFullscreen();
+      document.body.requestFullscreen(); //
     } else if (document.exitFullscreen) {
       document.exitFullscreen();
     }

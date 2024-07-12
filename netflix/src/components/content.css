@@ -50,6 +50,7 @@
 }
 
 .cardImage {
+  position: relative;
   width: 230px;
   height: 150px;
   border-radius: 3px;
@@ -57,10 +58,11 @@
 }
 
 .card-hover {
+  --leftvalue: 0;
   display: none;
   position: absolute;
   top: -50%;
-  left: 0;
+  left: var(--leftvalue);
   box-shadow: 2px 5px 5px 2px black;
   background-color: rgb(22, 22, 22);
   border-radius: 5px;
@@ -71,16 +73,17 @@
   display: block;
 }
 
+
 .card-container {
   background-color: rgb(22, 22, 22);
   border-radius: 5px;
 }
 
+
 .cardImage-Hover {
   border-radius: 5px;
-  height: 220px;
+  height: 200px;
   width: 350px;
-  aspect-ratio: 16/9;
 }
 
 .cardHover-btns {
@@ -143,6 +146,7 @@
   margin: 5px 0px;
   background-color: rgba(0, 0, 0, 0.5);
   color: transparent;
+  z-index: 1;
 }
 
 .handleLeft {

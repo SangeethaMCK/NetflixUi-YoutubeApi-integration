@@ -120,7 +120,8 @@ export default function Contents() {
           const maxScrollIndex = calculateMaxScrollIndex(
             playlist.videos ? playlist.videos.length : 0
           );
-         return (
+
+          return (
             <div key={index} className="rows">
               <h6 className="rowHeader">{playlist.title}</h6>
 
@@ -151,7 +152,7 @@ export default function Contents() {
                           className="cardImage"
                         />
                         <div
-                          className="card-hover"
+                          className="card-hover" style={{"--leftvalue":`${videoIndex%5*(-20)}px`}}
                           onMouseLeave={() => setHoveredVideo(null)}
                         >
                           {hoveredVideo === video.id ? (
