@@ -3,30 +3,30 @@
 }
 
 .content {
-  background-color: #444444;
+  background-color:rgb(22, 22, 22);
   position: absolute;
   top: 100%;
   right: 0;
   left: 0;
-  background: linear-gradient(to bottom, #444444 100%, #444444 0%);
+  background: linear-gradient(to bottom,rgb(22, 22, 22), 100%, rgb(22, 22, 22) 0%);
 }
 
 .title-cards {
-  transform: translate(0, -10%);
+  padding-bottom: 50px ;
+  transform: translate(0, -150px);
+  overflow-x: hidden;
 }
 
 .rows {
-  margin-top: 25px;
-  padding-left: 45px;
+  padding-left: 55px;
   position: relative;
-  overflow-x: hidden;
-  overflow-y: visible;
 }
 
 .rowHeader {
   background: transparent;
   color: white;
   font-weight: bold;
+  transform: translateY(30px);
 }
 
 .cardRow {
@@ -34,9 +34,7 @@
   display: inline-flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 20px;
-  transition: all 1s ease-in-out;
-  
+  transition: transform 1s ease-out;
 }
 
 .card {
@@ -64,10 +62,9 @@
   top: -50%;
   left: 0;
   box-shadow: 2px 5px 5px 2px black;
-  background-color: #555;
-  transition: all 0.3s ease-in-out;
+  background-color: rgb(22, 22, 22);
   border-radius: 5px;
-  z-index: 10;
+  z-index: 5;
 }
 
 .card-wrapper:hover .card-hover {
@@ -75,14 +72,15 @@
 }
 
 .card-container {
-  background-color: #555;
+  background-color: rgb(22, 22, 22);
   border-radius: 5px;
 }
 
 .cardImage-Hover {
   border-radius: 5px;
-  height: 200px;
+  height: 220px;
   width: 350px;
+  aspect-ratio: 16/9;
 }
 
 .cardHover-btns {
@@ -115,9 +113,9 @@
 .remove-btn,
 .like-btn,
 .moreInfo-btn {
-  background-color: rgba(71, 68, 68, 0.699);
-  color: rgb(160, 158, 158);
-  border: 1px solid rgb(160, 158, 158);
+  background-color:rgb(22, 22, 22);
+  color: white;
+  border: 2px solid rgb(160, 158, 158);
   border-radius: 100%;
   margin: 10px;
   padding: 5px 0;
@@ -134,7 +132,6 @@
 .like-btn:hover,
 .remove-btn:hover {
   border: 2px solid rgb(255, 255, 255);
-  color: #fff;
 }
 
 .handleLeft,
@@ -142,23 +139,21 @@
   border: none;
   height: 150px;
   width: 50px;
-  z-index: 10;
   padding: 5px 5px;
   margin: 5px 0px;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
   color: transparent;
-
 }
 
 .handleLeft {
   left: 0;
   position: fixed;
-
 }
 
 .handleRight {
   right: 0;
   position: fixed;
+  
 }
 
 .rows:hover .handleLeft {
@@ -176,4 +171,16 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
   font-size: 2.5rem;
+}
+.progressBars {
+  margin-left: 90%;
+}
+
+.slideProgress {
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease-in-out;
+  margin: 0.5px;
+  padding: 1px 7px;
+  display: inline-block;
 }

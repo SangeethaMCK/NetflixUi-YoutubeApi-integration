@@ -21,7 +21,7 @@ export default function Billboard() {
 
   useEffect(() => {
     fetch(
-      "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=1&channelId=UC8butISFwT-Wl7EV0hUK0BQ&playlistId=PLWKjhJtqVAbm04DK8TSUCRheRjW2P9TR7&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg"
+      "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=1&channelId=UC8butISFwT-Wl7EV0hUK0BQ&playlistId=PLWKjhJtqVAbn21gs5UnLhCQ82f923WCgM&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg"
     )
       .then((response) => response.json())
       .then((data) => {
@@ -44,7 +44,7 @@ export default function Billboard() {
         <div
           className="billboard-container"
           style={{
-            backgroundImage: `linear-gradient(to bottom, transparent, #444444 100%), url(${videos.thumbnail})`,
+            backgroundImage: `linear-gradient(to bottom, transparent, rgba(22, 22, 22, 1) 100%), url(${videos.thumbnail})`,
           }}
           onMouseOver={() => setHovered()}
           onMouseLeave={() => setHoveredVideo(false)}

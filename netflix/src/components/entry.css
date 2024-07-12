@@ -5,6 +5,7 @@ body, html {
   font-family: Arial, sans-serif;         
   background-color: black;
   color: white;
+  
 }
 
 .entryPage {
@@ -95,8 +96,9 @@ header{
 
 .banner {
   text-align: center;
-  padding: 50px 20px;
+  padding: 0px 20px;
   margin-top: 50px;
+  
 }
 
 .heading h1 {

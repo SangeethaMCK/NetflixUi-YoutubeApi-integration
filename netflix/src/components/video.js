@@ -27,6 +27,18 @@ function VideoPlayer() {
   const [duration, setDuration] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(1);
 
+  window.onkeydown = function (e) {
+    e.preventDefault();
+    switch (e.key) {
+      case " ": togglePlayPause(); break;
+      case "ArrowLeft": tenSecPrevious(); break;
+      case "ArrowRight": tenSecNext(); break;
+      case "ArrowUp": changePlaybackSpeed(2); break;
+      case "ArrowDown": changePlaybackSpeed(0.5); break;
+      default: return;
+    }
+  };
+
   useEffect(() => {
     const handleFullscreenChange = () => {
       setFullscreen(document.fullscreenElement === playerRef.current.wrapper);
@@ -40,6 +52,7 @@ function VideoPlayer() {
   }, []);
 
   const togglePlayPause = () => {
+    console.log("togglePlayPause");
     setPlaying(!playing);
   };
 
@@ -161,6 +174,8 @@ function VideoPlayer() {
           onProgress={handleProgress}
           onDuration={handleDuration}
           controls={false}
+          // onPause={togglePlayPause}
+          // onPlay={togglePlayPause}
         />
       )}
     </div>
@@ -168,5 +183,7 @@ function VideoPlayer() {
 }
 
 export default VideoPlayer;
+
+
 // playlist: https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UC8butISFwT-Wl7EV0hUK0BQ&maxResults=1&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg'
 // video: 'https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=5&playlistId=UU1VDpWpOf36CuP9fowyDZtQ&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg'
