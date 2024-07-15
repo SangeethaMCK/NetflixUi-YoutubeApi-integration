@@ -10,6 +10,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
+const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+
+
 export default function Contents() {
   const [playlists, setPlaylists] = useState([]);
   const [hoveredVideo, setHoveredVideo] = useState(null);
@@ -22,7 +25,7 @@ export default function Contents() {
     const fetchPlaylists = async () => {
       try {
         const playlistsResponse = await fetch(
-          "https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UC8butISFwT-Wl7EV0hUK0BQ&maxResults=10&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg" // Replace with your API key here
+          `https://youtube.googleapis.com/youtube/v3/playlists?part=snippet&channelId=UC8butISFwT-Wl7EV0hUK0BQ&maxResults=10&key=${apiKey}` 
         );
         const playlistsData = await playlistsResponse.json();
         const playlistItems = playlistsData.items.map((item) => ({
@@ -35,7 +38,7 @@ export default function Contents() {
         playlistItems.forEach(async (playlist) => {
           try {
             const videosResponse = await fetch(
-              `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=100&playlistId=${playlist.id}&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg` // Replace with your API key here
+              `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=100&playlistId=${playlist.id}&key=${apiKey}` 
             );
             const videosData = await videosResponse.json();
             const videoItems = videosData.items.map((item) => ({

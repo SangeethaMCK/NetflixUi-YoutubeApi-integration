@@ -6,6 +6,7 @@ import "./billboard.css";
 import { Outlet } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 export default function Billboard() {
   const [videos, setVideos] = useState({});
@@ -21,7 +22,7 @@ export default function Billboard() {
 
   useEffect(() => {
     fetch(
-      "https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=1&channelId=UC8butISFwT-Wl7EV0hUK0BQ&playlistId=PLWKjhJtqVAbn21gs5UnLhCQ82f923WCgM&key=AIzaSyC5hucyjipJJmjhoTrXJW6D3p2jvq9Jjbg"
+      `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=1&channelId=UC8butISFwT-Wl7EV0hUK0BQ&playlistId=PLWKjhJtqVAbn21gs5UnLhCQ82f923WCgM&key=${apiKey}`
     )
       .then((response) => response.json())
       .then((data) => {
