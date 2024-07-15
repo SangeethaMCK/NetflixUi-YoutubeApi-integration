@@ -95,3 +95,16 @@
   /* font-size: small; */
   /* display: inline-flex; */
 }
+
+@media screen and (max-width: 860px) {
+  .title{
+    font-size: 1.5rem;
+  }
+  .btn-container{
+    font-size: small;
+  }
+  .play-button, .moreInfo{
+    padding: 5px 10px;
+  }
+
+}

@@ -20,13 +20,14 @@
 .rows {
   padding-left: 55px;
   position: relative;
+  margin-bottom: 40px;
+  z-index: -10;
 }
 
 .rowHeader {
   background: transparent;
   color: white;
   font-weight: bold;
-  transform: translateY(30px);
 }
 
 .cardRow {
@@ -47,6 +48,7 @@
 
 .card-wrapper {
   position: relative;
+
 }
 
 .cardImage {
@@ -66,7 +68,7 @@
   box-shadow: 2px 5px 5px 2px black;
   background-color: rgb(22, 22, 22);
   border-radius: 5px;
-  z-index: 5;
+  z-index: 10;
 }
 
 .card-wrapper:hover .card-hover {
@@ -177,7 +179,9 @@
   font-size: 2.5rem;
 }
 .progressBars {
-  margin-left: 90%;
+  right: 60px;
+  position: absolute;
+  top: 0px;
 }
 
 .slideProgress {
@@ -187,4 +191,52 @@
   margin: 0.5px;
   padding: 1px 7px;
   display: inline-block;
+
+}
+@media  screen and (max-width: 1200px) {
+  .cardImage {
+    width: 200px;
+    height: 130px;
+  }
+  .handleLeft, .handleRight {
+    width: 40px;
+    height: 130px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .cardImage {
+    width: 170px;
+    height: 100px;
+  }
+  .handleLeft, .handleRight {
+    width: 40px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .cardImage {
+    width: 130px;
+    height: 80px;
+  }
+  .handleLeft, .handleRight {
+    width: 40px;
+    height: 80px;
+  }
+  .slideProgress{
+    padding: 1px 5px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .cardImage {
+    width: 100px;
+    height: 60px;
+  }
+.handleLeft, .handleRight {
+  width: 40px;
+  height: 60px;
+}
+.rowHeader{
+  font-size: 14px;
+}
 }
